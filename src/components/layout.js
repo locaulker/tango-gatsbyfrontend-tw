@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Hamburger />
+      <Hamburger handleOverlayMenu={handleOverlayMenu} />
       <OverlayMenu />
       <Header />
       <Primary id="primary" className="content-areas">
