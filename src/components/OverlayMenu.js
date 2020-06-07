@@ -45,6 +45,7 @@ const OverlayMenu = ({ menuOpen, callBack }) => {
           className="closeButton"
           onClick={callBack}
           role="button"
+          tabIndex={0}
           onKeyDown={callBack}
         >
           <img src={closeButton} alt="tango-close-button" />
