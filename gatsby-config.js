@@ -88,12 +88,14 @@ module.exports = {
           "**/media",
           "**/tags",
           "**/taxonomies",
-          // "**/users",
+          "**/users",
+          "**/*/*/menus", // <== Menu api endpoint
+          "**/*/*/menu-locations", // <== Menu api endpoint
         ],
         excludedRoutes: [
-          `/wp/v2/users/**`,
-          `/wp/v2/settings*`,
-          `/wp/v2/themes*`,
+          // `/wp/v2/users/**`,
+          // `/wp/v2/settings*`,
+          // `/wp/v2/themes*`,
         ],
         normalizer: function ({ entities }) {
           return entities
