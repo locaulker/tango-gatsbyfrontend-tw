@@ -91,7 +91,7 @@ module.exports = {
           "**/users",
           "**/*/*/menus", // <== Menu api endpoint
           "**/*/*/menu-locations", // <== Menu api endpoint
-          "**/*/*/slides",
+          "**/*/*/sliders",
         ],
         excludedRoutes: [
           // `/wp/v2/users/**`,
