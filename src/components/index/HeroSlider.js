@@ -24,8 +24,8 @@ const HeroSlider = () => {
               }
             }
             acf {
-              slider_pre_header
-              slider_header
+              pre_header
+              header
               slider_text
               slider_button_text
               slider_button_link
