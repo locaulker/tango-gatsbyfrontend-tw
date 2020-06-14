@@ -1,5 +1,5 @@
 import React from "react"
 
-const Citation = () => <div>Citation</div>
+const Citation = () => <div>Citat</div>
 
 export default Citation

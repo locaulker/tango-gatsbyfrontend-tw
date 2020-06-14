@@ -26,13 +26,13 @@ const CTAImages = () => {
           puff_1_link
           puff_2_link
           puff_3_link
-          puff_1_thumbnail {
+          puff_1_image {
             ...ctaImage
           }
-          puff_2_thumbnail {
+          puff_2_image {
             ...ctaImage
           }
-          puff_3_thumbnail {
+          puff_3_image {
             ...ctaImage
           }
         }

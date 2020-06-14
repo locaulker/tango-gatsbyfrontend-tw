@@ -2,11 +2,11 @@ import React from "react"
 import SEO from "../components/seo"
 
 import Layout from "../components/layout"
-import HeroSlider from "../components/Index/HeroSlider"
-import CTAImages from "../components/Index/CTAImages"
-import LatestTrend from "../components/Index/LatestTrend"
-import Citat from "../components/index/Citation"
-import About from "../components/Index/About"
+import HeroSlider from "../components/index/HeroSlider"
+import CTAImages from "../components/index/CTAImages"
+import LatestTrend from "../components/index/LatestTrend"
+import Citat from "../components/index/Citat"
+import About from "../components/index/About"
 
 const IndexPage = () => (
   <Layout>
