@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import HeroSlider from "../components/index/HeroSlider"
 import CTAImages from "../components/index/CTAImages"
 import LatestTrend from "../components/index/LatestTrend"
-import Citat from "../components/index/Citat"
+import Quote from "../components/index/Quote"
 import About from "../components/index/About"
 
 const IndexPage = () => (
@@ -14,7 +14,7 @@ const IndexPage = () => (
     <HeroSlider />
     <CTAImages />
     <LatestTrend />
-    <Citat />
+    <Quote />
     <About />
   </Layout>
 )

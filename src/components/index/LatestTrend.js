@@ -1,21 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import styled from "styled-components"
 
-const LatestTrendWrapper = styled.article`
-  text-align: center;
-  margin: 40px 0;
-  font-family: "Helvetica", sans-serif;
-  h1,
-  h4,
-  h5 {
-    font-family: "Teko", sans-serif;
-    text-transform: uppercase;
-  }
-  a {
-    text-decoration: none;
-  }
-`
+import { LatestTrendWrapper } from "./styles/LatestStyles"
 
 const LatestTrend = () => {
   const data = useStaticQuery(graphql`
