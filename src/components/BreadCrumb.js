@@ -1,5 +1,34 @@
 import React from "react"
+import { Link } from "gatsby"
+import { PropTypes } from "prop-types"
 
-const BreadCrumb = () => <div>BreadCrumb</div>
+import { BreadCrumbWrapper } from "./styles/BreadCrumbStyles"
+
+const BreadCrumb = ({ parent }) => (
+  <div className="container">
+    <div className="row">
+      <div className="col-lg-9 offset-lg-3">
+        <BreadCrumbWrapper>
+          <Link to="/">
+            <span>Tango Brand Alliance</span>
+          </Link>
+          <span className="divider">/</span>
+          {parent ? (
+            <div>
+              <Link to={parent.link}>
+                <span dangerouslySetInnerHTML={{ __html: parent.title }} />
+                <span className="divider">/</span>
+              </Link>
+            </div>
+          ) : null}
+        </BreadCrumbWrapper>
+      </div>
+    </div>
+  </div>
+)
+
+BreadCrumb.prototypes = {
+  parent: PropTypes.object,
+}
 
 export default BreadCrumb
