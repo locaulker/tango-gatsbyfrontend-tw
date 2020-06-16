@@ -4,14 +4,12 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import PageSidebar from "../components/page/PageSidebar"
-// import BreadCrumb from "../components/BreadCrumb"
+import BreadCrumb from "../components/BreadCrumb"
 import PageHero from "../components/PageHero"
 
 const PageContent = styled.article`
   margin: 20px 0 0 0;
 `
-
-export default PageTemplate
 
 export const pageQuery = graphql`
   query($id: String!, $parent: Int!, $wpId: Int!) {
@@ -19,9 +17,9 @@ export const pageQuery = graphql`
       title
       content
       wordpress_parent
-      # acf {
-      #   education
-      # }
+      acf {
+        education
+      }
       featured_media {
         localFile {
           childImageSharp {
@@ -67,7 +65,7 @@ const PageTemplate = ({ data }) => (
       />
     ) : null}
 
-    {/* <BreadCrumb parent={data.parent} /> */}
+    <BreadCrumb parent={data.parent} />
     <div className="container">
       <div className="row" style={{ marginBottom: "40px" }}>
         <PageSidebar
@@ -85,3 +83,5 @@ const PageTemplate = ({ data }) => (
     </div>
   </Layout>
 )
+
+export default PageTemplate
