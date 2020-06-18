@@ -1,9 +1,14 @@
 const path = require("path")
 const slash = require("slash")
+const { paginate } = require("gatsby-awesome-pagination")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+
   const pageTemplate = path.resolve("./src/templates/page.js")
+  const archiveTemplate = path.resolve("./src/templates/archive.js")
+  const postTemplate = path.resolve("./src/templates/post.js")
+
   const result = await graphql(`
     {
       allWordpressPage {
@@ -17,6 +22,28 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allWordpressPost {
+        edges {
+          node {
+            id
+            link
+            status
+            categories {
+              id
+            }
+          }
+        }
+      }
+      allWordpressCategory {
+        edges {
+          node {
+            id
+            name
+            slug
+            count
+          }
+        }
+      }
     }
   `)
 
@@ -25,7 +52,38 @@ exports.createPages = async ({ graphql, actions }) => {
     throw new Error(result.errors)
   }
 
-  const { allWordpressPage } = result.data
+  const {
+    allWordpressPage,
+    allWordpressPost,
+    allWordpressCategory,
+  } = result.data
+
+  // Create archive pages for each category
+  allWordpressCategory.edges.forEach(catEdge => {
+    // 1. Filter posts that belong to the current category
+    const filteredPosts = allWordpressPost.edges.filter(
+      ({ node: { categories } }) =>
+        categories.some(el => el.id === catEdge.node.id)
+    )
+    // 2. Some categories may empty. So will not be shown
+    if (filteredPosts.length > 0) {
+      paginate({
+        createPage,
+        items: filteredPosts,
+        itemsPerPage: 10,
+        pathPrefix: `/trends/${catEdge.node.slug}`,
+        component: slash(archiveTemplate),
+        context: {
+          catId: catEdge.node.id,
+          catName: catEdge.node.name,
+          catSlug: catEdge.node.slug,
+          catCount: catEdge.node.count,
+          categories: allWordpressCategory.edges,
+        },
+      })
+    }
+  })
+
   allWordpressPage.edges.forEach(edge => {
     if (edge.node.status === "publish") {
       createPage({
