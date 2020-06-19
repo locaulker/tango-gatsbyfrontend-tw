@@ -14,12 +14,12 @@ const BreadCrumb = ({ parent }) => (
           </Link>
           <span className="divider">/</span>
           {parent ? (
-            <div>
+            <>
               <Link to={parent.link}>
                 <span dangerouslySetInnerHTML={{ __html: parent.title }} />
-                <span className="divider">/</span>
               </Link>
-            </div>
+              <span className="divider">/</span>
+            </>
           ) : null}
         </BreadCrumbWrapper>
       </div>

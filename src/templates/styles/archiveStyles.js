@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { nominalTypeHack } from "prop-types"
 
 export const PageContent = styled.article`
   margin: 20px 0 0 0;
@@ -9,7 +8,6 @@ export const PageContent = styled.article`
 export const StyledH2 = styled.h2`
   font-weight: 500;
   font-size: 1.8rem;
-  text-decoration: none !important;
   :hover {
     color: #d22e26;
   }
@@ -33,7 +31,7 @@ export const StyledReadMore = styled(Link)`
   background: #000;
   padding: 3px 0 0 10px;
   margin-bottom: 30px;
-  text-decoration: none;
+  text-decoration: none !important;
 
   :after {
     left: 100%;
