@@ -13,7 +13,7 @@ const PostContent = styled.article`
 
 export const pageQuery = graphql`
   query($id: String!) {
-    post: wordpressPost(id: $id) {
+    post: wordpressPost(id: { eq: $id }) {
       title
       content
       author {
@@ -21,6 +21,7 @@ export const pageQuery = graphql`
       }
       date(formatString: "MMM Do, YYYY")
       categories {
+        id
         name
         slug
       }
@@ -39,7 +40,7 @@ const postTemplate = ({ data: { post } }) => (
     <div className="container">
       <div className="row" style={{ marginBottom: "40px" }}>
         <PostSidebar
-          date={postTemplate.date}
+          date={post.date}
           author={post.author.name}
           categories={post.categories}
         />
@@ -51,5 +52,9 @@ const postTemplate = ({ data: { post } }) => (
     </div>
   </Layout>
 )
+
+postTemplate.protoTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 export default postTemplate
