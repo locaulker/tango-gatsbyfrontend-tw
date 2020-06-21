@@ -22,7 +22,7 @@ const PageSidebar = ({ children, parentChildren, currentPage, parent }) => {
         <p>
           If want to be informed when new trends are published?
           <br />
-          Just eMail us with your Contact Informatio{" "}
+          Just eMail us with your Contact Information{" "}
           <a href="mailto:jdoe@gmail.net">John Doe</a>
         </p>
       </>

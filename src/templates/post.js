@@ -53,7 +53,7 @@ const postTemplate = ({ data: { post } }) => (
   </Layout>
 )
 
-postTemplate.protoTypes = {
+postTemplate.propTypes = {
   data: PropTypes.object.isRequired,
 }
 

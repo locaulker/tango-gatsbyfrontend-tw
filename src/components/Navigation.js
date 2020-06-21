@@ -17,8 +17,8 @@ const Navigation = ({ menu }) => {
               <>
                 <span>&#8964;</span>
                 <ul>
-                  {item.wordpress_children.map((child, ichild) => (
-                    <li key={ichild}>
+                  {item.wordpress_children.map((child, iChild) => (
+                    <li key={iChild}>
                       <Link to={child.url} activeClassName="nav-active">
                         {child.title}
                       </Link>

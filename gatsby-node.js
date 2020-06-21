@@ -70,7 +70,7 @@ exports.createPages = async ({ graphql, actions }) => {
       paginate({
         createPage,
         items: filteredPosts,
-        itemsPerPage: 10,
+        itemsPerPage: 5,
         pathPrefix: `/trends/${catEdge.node.slug}`,
         component: slash(archiveTemplate),
         context: {
@@ -102,7 +102,9 @@ exports.createPages = async ({ graphql, actions }) => {
     if (edge.node.status === "publish") {
       createPage({
         path: `/trends${edge.node.link}`,
+        // path: `/trends/${edge.node.link}`,
         component: slash(postTemplate),
+        // component: postTemplate,
         context: {
           id: edge.node.id,
         },

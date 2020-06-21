@@ -56,7 +56,7 @@ const archiveTemplate = ({
     <PageHero img={file.childImageSharp.fluid} />
     <BreadCrumb
       parent={{
-        link: "/trends/all-trend-spotting",
+        link: "/trends/alla-trendspaningar",
         title: "trends",
       }}
     />
@@ -73,7 +73,7 @@ const archiveTemplate = ({
           <h1 dangerouslySetInnerHTML={{ __html: catName }} />
           {allWordpressPost.edges.map(post => (
             <article key={post.node.id} className="entry-content">
-              <Link to={`/trends/${post.node.slug}/`}>
+              <Link to={`post/trends/${post.node.slug}/`}>
                 <StyledH2
                   dangerouslySetInnerHTML={{ __html: post.node.title }}
                 />

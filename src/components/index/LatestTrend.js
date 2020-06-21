@@ -30,7 +30,7 @@ const LatestTrend = () => {
                 __html: data.allWordpressPost.edges[0].node.excerpt,
               }}
             />
-            <Link to={`/trends/${data.allWordpressPost.edges[0].node.slug}/`}>
+            <Link to={`/trends/${data.allWordpressPost.edges[0].node.slug}`}>
               <h5>Read More</h5>
             </Link>
           </div>
